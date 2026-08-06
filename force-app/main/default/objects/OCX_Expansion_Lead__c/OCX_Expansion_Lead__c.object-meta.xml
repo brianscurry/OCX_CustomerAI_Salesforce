@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>OCX Expansion Lead seller workflow page</comment>
+        <content>OCX_Expansion_Lead_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>An OCX-qualified expansion signal for an existing Account, reviewed by Sales before Opportunity creation.</description>
     <enableActivities>true</enableActivities>
