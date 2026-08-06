@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accepted_Expansion_Leads</fullName>
+    <columns>NAME</columns>
+    <columns>OCX_Account__c</columns>
+    <columns>OCX_Status__c</columns>
+    <columns>OCX_Accepted_By__c</columns>
+    <columns>OCX_Accepted_At__c</columns>
+    <columns>OCX_Estimated_Value__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>OCX_Status__c</field>
+        <operation>equals</operation>
+        <value>Accepted</value>
+    </filters>
+    <label>Accepted Expansion Leads</label>
+</ListView>

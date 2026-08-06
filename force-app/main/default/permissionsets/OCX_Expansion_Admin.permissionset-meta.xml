@@ -251,6 +251,10 @@
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
+        <tab>OCX_Expansion_Qualification</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>OCX_Expansion_Qualification_Rule__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>

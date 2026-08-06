@@ -202,4 +202,8 @@
         <tab>OCX_Expansion_Lead__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <tabSettings>
+        <tab>OCX_Expansion_Qualification</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>

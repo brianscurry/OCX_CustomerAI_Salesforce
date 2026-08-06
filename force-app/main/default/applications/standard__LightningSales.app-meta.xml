@@ -13,10 +13,10 @@
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>
     <tabs>OCX_Expansion_Lead__c</tabs>
+    <tabs>OCX_Expansion_Qualification</tabs>
     <tabs>standard-Task</tabs>
     <tabs>standard-File</tabs>
     <tabs>standard-Account</tabs>
-    <tabs>OCX_Expansion_Qualification</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Campaign</tabs>
     <tabs>standard-Dashboard</tabs>
