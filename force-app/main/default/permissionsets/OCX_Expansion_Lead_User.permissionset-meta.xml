@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Seller access to OCX Expansion Leads and conversion workflow.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>OCX Expansion Lead User</label>
+    <objectPermissions><allowCreate>true</allowCreate><allowDelete>false</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>OCX_Expansion_Lead__c</object><viewAllRecords>false</viewAllRecords></objectPermissions>
+    <objectPermissions><allowCreate>false</allowCreate><allowDelete>false</allowDelete><allowEdit>false</allowEdit><allowRead>true</allowRead><modifyAllRecords>false</modifyAllRecords><object>OCX_Expansion_Qualification_Rule__c</object><viewAllRecords>false</viewAllRecords></objectPermissions>
+    <tabSettings><tab>OCX_Expansion_Lead__c</tab><visibility>Visible</visibility></tabSettings>
+</PermissionSet>

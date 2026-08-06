@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Defines account qualification criteria used to generate OCX Expansion Leads.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <label>Expansion Qualification Rule</label>
+    <nameField><displayFormat>EQR-{00000}</displayFormat><label>Rule Number</label><type>AutoNumber</type></nameField>
+    <pluralLabel>Expansion Qualification Rules</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

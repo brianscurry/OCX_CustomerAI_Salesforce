@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Converted_Opportunity__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Converted Opportunity</label>
+    <referenceTo>Opportunity</referenceTo>
+    <relationshipLabel>Source Expansion Leads</relationshipLabel>
+    <relationshipName>Source_Expansion_Leads</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>

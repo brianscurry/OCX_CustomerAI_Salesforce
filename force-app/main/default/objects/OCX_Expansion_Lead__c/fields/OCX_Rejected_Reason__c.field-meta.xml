@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Rejected_Reason__c</fullName>
+    <label>Rejected Reason</label>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+        <value><fullName>No customer need</fullName><default>false</default><label>No customer need</label></value>
+        <value><fullName>Already being pursued</fullName><default>false</default><label>Already being pursued</label></value>
+        <value><fullName>Bad timing</fullName><default>false</default><label>Bad timing</label></value>
+        <value><fullName>Signal inaccurate</fullName><default>false</default><label>Signal inaccurate</label></value>
+        <value><fullName>Duplicate</fullName><default>false</default><label>Duplicate</label></value>
+        <value><fullName>Account at risk</fullName><default>false</default><label>Account at risk</label></value>
+        <value><fullName>Wrong product</fullName><default>false</default><label>Wrong product</label></value>
+        <value><fullName>Other</fullName><default>false</default><label>Other</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

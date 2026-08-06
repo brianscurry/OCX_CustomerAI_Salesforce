@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Accepted_By__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Accepted By</label>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>Accepted Expansion Leads</relationshipLabel>
+    <relationshipName>Accepted_Expansion_Leads</relationshipName>
+    <required>false</required>
+    <type>Lookup</type>
+</CustomField>
