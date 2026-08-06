@@ -1,20 +1,13 @@
-.viewer-container {
+:host {
     display: block;
-    max-width: 100%;
-    max-height: 78vh;
-    margin: 0 auto;
-    overflow: hidden;
-    background: #ffffff;
 }
 
-.viewer-container.portrait {
-    width: auto;
-    height: 78vh;
-}
-
-.viewer-container.landscape {
+.viewer-shell {
     width: 100%;
-    height: auto;
+    height: 78vh;
+    min-height: 32rem;
+    max-height: 78vh;
+    overflow: hidden;
 }
 
 .viewer-frame {
@@ -22,5 +15,4 @@
     width: 100%;
     height: 100%;
     border: 0;
-    background: #ffffff;
 }
