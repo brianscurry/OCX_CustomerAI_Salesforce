@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="Expansion Lead Actions" icon-name="standard:lead">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+
+            <template if:true={lead}>
+                <div class="summary slds-m-bottom_medium">
+                    <p><strong>Account:</strong> {lead.accountName}</p>
+                    <p><strong>Status:</strong> {lead.status}</p>
+                    <p><strong>Owner:</strong> {lead.ownerName}</p>
+                    <p><strong>Recommended product:</strong> {lead.recommendedProduct}</p>
+                    <p><strong>Estimated value:</strong>
+                        <lightning-formatted-number value={lead.estimatedValue} format-style="currency"></lightning-formatted-number>
+                    </p>
+                    <p><strong>Rationale:</strong> {lead.rationale}</p>
+                    <template if:true={lead.convertedOpportunityId}>
+                        <p><strong>Opportunity:</strong> {lead.convertedOpportunityName}</p>
+                    </template>
+                </div>
+
+                <template if:true={isOpen}>
+                    <div class="slds-grid slds-wrap slds-gutters_small slds-m-bottom_medium">
+                        <div class="slds-col">
+                            <lightning-button variant="brand" label="Accept" onclick={handleAccept}></lightning-button>
+                        </div>
+                        <div class="slds-col">
+                            <lightning-button label="Reject" onclick={toggleReject}></lightning-button>
+                        </div>
+                    </div>
+                </template>
+
+                <template if:true={showReject}>
+                    <div class="panel slds-m-bottom_medium">
+                        <lightning-textarea label="Rejection reason" value={rejectReason} onchange={handleRejectReason}></lightning-textarea>
+                        <lightning-button class="slds-m-top_small" variant="destructive" label="Confirm Reject" onclick={handleReject}></lightning-button>
+                    </div>
+                </template>
+
+                <template if:true={isAccepted}>
+                    <div class="panel">
+                        <h3 class="slds-text-heading_small slds-m-bottom_small">Create Opportunity</h3>
+                        <lightning-input label="Opportunity Name" value={opportunityName} data-field="opportunityName" onchange={handleInput}></lightning-input>
+                        <lightning-combobox label="Stage" value={stageName} options={stageOptions} data-field="stageName" onchange={handleInput}></lightning-combobox>
+                        <lightning-input type="date" label="Close Date" value={closeDate} data-field="closeDate" onchange={handleInput}></lightning-input>
+                        <lightning-input type="number" formatter="currency" label="Amount" value={amount} data-field="amount" onchange={handleInput}></lightning-input>
+                        <lightning-button class="slds-m-top_small" variant="brand" label="Create Opportunity" onclick={handleConvert}></lightning-button>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

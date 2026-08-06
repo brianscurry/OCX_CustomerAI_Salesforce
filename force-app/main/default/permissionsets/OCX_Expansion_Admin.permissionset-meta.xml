@@ -1,14 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-<description>RevOps and administrator access to configure and run OCX expansion qualification.</description>
     <classAccesses>
         <apexClass>OCXExpansionAdminController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OCXExpansionLeadController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OCXExpansionLeadService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>OCXExpansionRuleEngine</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <description>RevOps and administrator access to configure and run OCX expansion qualification.</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>OCX_Expansion_Lead__c.OCX_Accepted_At__c</field>
@@ -204,11 +212,46 @@
         <field>OCX_Expansion_Rule_Condition__c.OCX_Value__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.OCX_Expansion_Lead__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
     <label>OCX Expansion Admin</label>
-    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>OCX_Expansion_Qualification_Rule__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
-    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>OCX_Expansion_Rule_Condition__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
-    <objectPermissions><allowCreate>true</allowCreate><allowDelete>true</allowDelete><allowEdit>true</allowEdit><allowRead>true</allowRead><modifyAllRecords>true</modifyAllRecords><object>OCX_Expansion_Lead__c</object><viewAllRecords>true</viewAllRecords></objectPermissions>
-    <tabSettings><tab>OCX_Expansion_Lead__c</tab><visibility>Visible</visibility></tabSettings>
-    <tabSettings><tab>OCX_Expansion_Qualification_Rule__c</tab><visibility>Visible</visibility></tabSettings>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>OCX_Expansion_Qualification_Rule__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>OCX_Expansion_Rule_Condition__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>OCX_Expansion_Lead__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <tabSettings>
+        <tab>OCX_Expansion_Lead__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>OCX_Expansion_Qualification_Rule__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>
