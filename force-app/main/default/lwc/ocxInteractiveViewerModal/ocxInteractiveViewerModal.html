@@ -1,0 +1,35 @@
+<template>
+    <lightning-modal-header label={reportTitle}>
+    </lightning-modal-header>
+
+    <lightning-modal-body>
+        <template if:true={hasViewerUrl}>
+            <div
+                class={viewerContainerClass}
+                style={viewerStyle}>
+
+                <iframe
+                    class="viewer-frame"
+                    src={safeViewerUrl}
+                    title={reportTitle}
+                    onload={handleFrameLoad}
+                    allow="fullscreen"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </template>
+
+        <template if:false={hasViewerUrl}>
+            <div class="slds-p-around_medium slds-text-color_error">
+                This publication does not contain a valid HTTPS viewer URL.
+            </div>
+        </template>
+    </lightning-modal-body>
+
+    <lightning-modal-footer>
+        <lightning-button
+            label="Close"
+            onclick={handleClose}>
+        </lightning-button>
+    </lightning-modal-footer>
+</template>

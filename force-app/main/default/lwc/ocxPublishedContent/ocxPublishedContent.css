@@ -1,0 +1,21 @@
+.publication-meta {
+    color: var(--lwc-colorTextWeak, #5c5c5c);
+    font-size: 0.75rem;
+}
+
+.publication-content {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.markdown-fallback {
+    white-space: pre-wrap;
+    font-family: var(--lwc-fontFamily, Arial, sans-serif);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}

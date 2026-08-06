@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Content_Document_ID__c</fullName>
+    <description>ContentDocument Id of the attached PDF, when Content Format = PDF.</description>
+    <externalId>false</externalId>
+    <label>Content Document ID</label>
+    <length>24</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Portfolio_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>portfolio_identity.stable_token.</description>
+    <externalId>true</externalId>
+    <label>OCX Portfolio ID</label>
+    <length>64</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

@@ -1,0 +1,49 @@
+<aura:component
+    implements="lightning:actionOverride,force:hasRecordId"
+    access="global">
+
+    <aura:attribute
+        name="taskRecord"
+        type="Object" />
+
+    <aura:attribute
+        name="recordError"
+        type="String" />
+
+    <aura:attribute
+        name="isReviewTask"
+        type="Boolean"
+        default="false" />
+
+    <aura:attribute
+        name="resolved"
+        type="Boolean"
+        default="false" />
+
+    <aura:attribute
+        name="navigating"
+        type="Boolean"
+        default="false" />
+
+    <force:recordData
+        aura:id="taskLoader"
+        recordId="{!v.recordId}"
+        fields="Description,WhatId"
+        targetFields="{!v.taskRecord}"
+        targetError="{!v.recordError}"
+        recordUpdated="{!c.handleRecordUpdated}" />
+
+    <lightning:navigation aura:id="navService" />
+
+    <aura:if isTrue="{!v.isReviewTask}">
+        <c:ocxTaskReviewLauncher
+            recordId="{!v.recordId}"
+            onclose="{!c.handleClose}" />
+
+        <aura:set attribute="else">
+            <lightning:spinner
+                alternativeText="Opening task"
+                size="medium" />
+        </aura:set>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,10 @@
+.sf/
+.sfdx/
+.localdevserver/
+node_modules/
+.DS_Store
+
+ocx-test-backup-*/
+test-fix-backup-*/
+excluded-permission-sets/
+*.before-*

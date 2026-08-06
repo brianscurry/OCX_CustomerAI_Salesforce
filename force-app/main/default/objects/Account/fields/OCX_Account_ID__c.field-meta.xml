@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Account_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>Stable OCX account token (account_identity.stable_token). Synchronization key.</description>
+    <externalId>true</externalId>
+    <label>OCX Account ID</label>
+    <length>64</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

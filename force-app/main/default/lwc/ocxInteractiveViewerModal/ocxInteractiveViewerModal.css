@@ -1,0 +1,26 @@
+.viewer-container {
+    display: block;
+    max-width: 100%;
+    max-height: 78vh;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.viewer-container.portrait {
+    width: auto;
+    height: 78vh;
+}
+
+.viewer-container.landscape {
+    width: 100%;
+    height: auto;
+}
+
+.viewer-frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #ffffff;
+}

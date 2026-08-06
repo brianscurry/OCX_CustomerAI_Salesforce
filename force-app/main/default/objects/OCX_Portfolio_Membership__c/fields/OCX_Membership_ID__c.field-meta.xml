@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Membership_ID__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>&lt;OCX Account ID&gt;::&lt;OCX Portfolio ID&gt;.</description>
+    <externalId>true</externalId>
+    <label>OCX Membership ID</label>
+    <length>64</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

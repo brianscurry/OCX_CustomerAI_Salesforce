@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Review_Due_At__c</fullName>
+    <description>Exact date and time, 48 hours after publication, by which the report should be reviewed.</description>
+    <label>OCX Review Due At</label>
+    <required>false</required>
+    <type>DateTime</type>
+</CustomField>

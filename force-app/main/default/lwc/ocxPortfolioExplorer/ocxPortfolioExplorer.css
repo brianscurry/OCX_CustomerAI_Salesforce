@@ -1,0 +1,27 @@
+.metric-card {
+    height: 100%;
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 2.25rem;
+}
+
+.distribution-card {
+    border: 1px solid var(--lwc-colorBorder, #dddbda);
+    border-radius: 0.25rem;
+    padding: 1rem;
+    height: 100%;
+}
+
+.empty-state {
+    padding: 2rem;
+    text-align: center;
+    color: var(--lwc-colorTextWeak, #706e6b);
+}
+
+.rich-content {
+    max-height: 40rem;
+    overflow: auto;
+}

@@ -1,0 +1,80 @@
+<template>
+    <lightning-card title="Published Customer Intelligence" icon-name="custom:custom18">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading publications" size="small"></lightning-spinner>
+        </template>
+
+        <template if:true={errorMessage}>
+            <div class="slds-p-around_medium slds-text-color_error">{errorMessage}</div>
+        </template>
+
+        <template if:true={hasPublications}>
+            <lightning-accordion allow-multiple-sections-open>
+                <template for:each={publications} for:item="item">
+                    <lightning-accordion-section key={item.id} name={item.id} label={item.title}>
+                        <div class="publication-meta slds-m-bottom_small">{item.meta}</div>
+
+                        <template if:true={item.hasSummary}>
+                            <div class="slds-text-title_bold slds-m-bottom_x-small">Summary</div>
+                            <lightning-formatted-text value={item.summary}></lightning-formatted-text>
+                            <div class="slds-m-bottom_medium"></div>
+                        </template>
+
+                        <template if:true={item.hasRenderedHtml}>
+                            <div class="slds-text-longform publication-content">
+                                <lightning-formatted-rich-text value={item.renderedHtml}></lightning-formatted-rich-text>
+                            </div>
+                        </template>
+
+                        <template if:true={item.hasMarkdownOnly}>
+                            <div class="markdown-fallback">
+                                <lightning-formatted-text value={item.markdown}></lightning-formatted-text>
+                            </div>
+                        </template>
+
+                        <div class="slds-m-top_medium actions">
+                            <lightning-button
+                                variant="base"
+                                label="Open Salesforce Record"
+                                data-id={item.id}
+                                onclick={openRecord}>
+                            </lightning-button>
+
+                            <template if:true={item.hasPdf}>
+                                <lightning-button
+                                    class="slds-m-left_small"
+                                    variant="brand-outline"
+                                    label="Preview PDF"
+                                    data-document-id={item.contentDocumentId}
+                                    onclick={previewPdf}>
+                                </lightning-button>
+                            </template>
+
+                            <template if:true={item.hasLaunchUrl}>
+                                <lightning-button
+                                    class="slds-m-left_small"
+                                    variant="brand"
+                                    label="Open Report"
+                                    data-id={item.id}
+                                    data-url={item.launchUrl}
+                                    data-title={item.title}
+                                    onclick={openReport}>
+                                </lightning-button>
+                            </template>
+                        </div>
+                    </lightning-accordion-section>
+                </template>
+            </lightning-accordion>
+        </template>
+
+        <template if:false={hasPublications}>
+            <template if:false={isLoading}>
+                <template if:false={errorMessage}>
+                    <div class="slds-p-around_medium slds-text-color_weak">
+                        No Customer AI reports or action plans have been published to this Account.
+                    </div>
+                </template>
+            </template>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,214 @@
+<template>
+    <lightning-card title="OCX Portfolio Explorer" icon-name="custom:custom67">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <div class="slds-grid slds-wrap slds-gutters_small slds-grid_vertical-align-end">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12">
+                    <lightning-input
+                        type="search"
+                        label="Find a portfolio"
+                        value={portfolioSearch}
+                        onchange={handlePortfolioSearch}
+                    ></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12">
+                    <lightning-combobox
+                        label="Portfolio"
+                        value={selectedPortfolioId}
+                        options={portfolioOptions}
+                        onchange={handlePortfolioChange}
+                        placeholder="Select a portfolio"
+                    ></lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12">
+                    <lightning-button
+                        label="Refresh"
+                        icon-name="utility:refresh"
+                        onclick={handleRefresh}
+                        class="slds-m-right_x-small"
+                    ></lightning-button>
+                </div>
+            </div>
+        </div>
+
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading portfolio" size="medium"></lightning-spinner>
+        </template>
+
+        <template if:true={errorMessage}>
+            <div class="slds-notify slds-notify_alert slds-alert_error slds-m-horizontal_medium slds-m-bottom_medium" role="alert">
+                <span class="slds-assistive-text">Error</span>
+                <h2>{errorMessage}</h2>
+            </div>
+        </template>
+
+        <template if:true={hasPortfolio}>
+            <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+                <div class="slds-grid slds-wrap slds-grid_vertical-align-center slds-m-bottom_medium">
+                    <div class="slds-col slds-grow">
+                        <h2 class="slds-text-heading_medium">{summary.name}</h2>
+                        <p class="slds-text-color_weak">OCX Portfolio ID: {summary.externalId}</p>
+                    </div>
+                    <div class="slds-col slds-no-flex">
+                        <lightning-button
+                            label="Open Portfolio Record"
+                            icon-name="utility:open"
+                            onclick={openPortfolioRecord}
+                        ></lightning-button>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-gutters_small slds-m-bottom_medium">
+                    <div class="slds-col slds-size_1-of-2 slds-large-size_1-of-4 slds-m-bottom_small">
+                        <article class="metric-card slds-card">
+                            <div class="slds-card__body slds-card__body_inner">
+                                <div class="slds-text-title_caps">Accounts</div>
+                                <div class="metric-value">{summary.accountCount}</div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-large-size_1-of-4 slds-m-bottom_small">
+                        <article class="metric-card slds-card">
+                            <div class="slds-card__body slds-card__body_inner">
+                                <div class="slds-text-title_caps">Total ACV</div>
+                                <div class="metric-value">{formattedTotalAcv}</div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-large-size_1-of-4 slds-m-bottom_small">
+                        <article class="metric-card slds-card">
+                            <div class="slds-card__body slds-card__body_inner">
+                                <div class="slds-text-title_caps">Portfolio NPS</div>
+                                <div class="metric-value">{portfolioNps}</div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2 slds-large-size_1-of-4 slds-m-bottom_small">
+                        <article class="metric-card slds-card">
+                            <div class="slds-card__body slds-card__body_inner">
+                                <div class="slds-text-title_caps">Open Tickets</div>
+                                <div class="metric-value">{formattedOpenTickets}</div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="slds-grid slds-wrap slds-gutters_medium slds-m-bottom_large">
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2 slds-m-bottom_medium">
+                        <section class="distribution-card">
+                            <h3 class="slds-text-heading_small slds-m-bottom_small">NPS class distribution</h3>
+                            <template for:each={npsDistribution} for:item="item">
+                                <div key={item.label} class="slds-m-bottom_small">
+                                    <div class="slds-grid slds-grid_align-spread slds-m-bottom_xx-small">
+                                        <span>{item.label}</span>
+                                        <span>{item.count} · {item.percent}%</span>
+                                    </div>
+                                    <lightning-progress-bar value={item.percent} size="large"></lightning-progress-bar>
+                                </div>
+                            </template>
+                        </section>
+                    </div>
+                    <div class="slds-col slds-size_1-of-1 slds-large-size_1-of-2 slds-m-bottom_medium">
+                        <section class="distribution-card">
+                            <h3 class="slds-text-heading_small slds-m-bottom_small">Propensity distribution</h3>
+                            <template for:each={propensityDistribution} for:item="item">
+                                <div key={item.label} class="slds-m-bottom_small">
+                                    <div class="slds-grid slds-grid_align-spread slds-m-bottom_xx-small">
+                                        <span>{item.label}</span>
+                                        <span>{item.count} · {item.percent}%</span>
+                                    </div>
+                                    <lightning-progress-bar value={item.percent} size="large"></lightning-progress-bar>
+                                </div>
+                            </template>
+                        </section>
+                    </div>
+                </div>
+
+                <lightning-tabset>
+                    <lightning-tab label={accountsTabLabel} value="accounts">
+                        <div class="slds-m-top_medium">
+                            <div class="slds-grid slds-wrap slds-gutters_small slds-grid_vertical-align-end slds-m-bottom_small">
+                                <div class="slds-col slds-size_1-of-1 slds-medium-size_5-of-12">
+                                    <lightning-input
+                                        type="search"
+                                        label="Filter accounts in this portfolio"
+                                        value={accountSearch}
+                                        onchange={handleAccountSearch}
+                                    ></lightning-input>
+                                </div>
+                            </div>
+
+                            <lightning-datatable
+                                key-field="id"
+                                data={accountRows}
+                                columns={accountColumns}
+                                hide-checkbox-column
+                                onrowaction={handleAccountRowAction}
+                            ></lightning-datatable>
+
+                            <div class="slds-grid slds-grid_align-spread slds-m-top_small">
+                                <lightning-button
+                                    label="Previous"
+                                    onclick={handlePreviousPage}
+                                    disabled={previousDisabled}
+                                ></lightning-button>
+                                <span class="slds-text-color_weak">Page {pageNumber}</span>
+                                <lightning-button
+                                    label="Next"
+                                    onclick={handleNextPage}
+                                    disabled={nextDisabled}
+                                ></lightning-button>
+                            </div>
+                        </div>
+                    </lightning-tab>
+
+                    <lightning-tab label={publishedTabLabel} value="published">
+                        <div class="slds-m-top_medium">
+                            <template if:true={hasPublishedContent}>
+                                <lightning-datatable
+                                    key-field="id"
+                                    data={publishedRows}
+                                    columns={publishedColumns}
+                                    hide-checkbox-column
+                                    onrowaction={handlePublishedRowAction}
+                                ></lightning-datatable>
+                            </template>
+                            <template if:false={hasPublishedContent}>
+                                <div class="empty-state">
+                                    No Customer AI reports or action plans have been published to this portfolio yet.
+                                </div>
+                            </template>
+
+                            <template if:true={selectedStaticContent}>
+                                <article class="slds-card slds-m-top_medium">
+                                    <div class="slds-card__header slds-grid">
+                                        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                            <div class="slds-media__body">
+                                                <h3 class="slds-card__header-title">{selectedPublication.title}</h3>
+                                            </div>
+                                        </header>
+                                    </div>
+                                    <div class="slds-card__body slds-card__body_inner rich-content">
+                                        <lightning-formatted-rich-text value={selectedPublication.renderedHtml}></lightning-formatted-rich-text>
+                                    </div>
+                                </article>
+                            </template>
+                        </div>
+                    </lightning-tab>
+
+                    <lightning-tab label="Action Deployments" value="deployments">
+                        <div class="slds-m-top_medium">
+                            <template if:true={hasDeployments}>
+                                <lightning-datatable key-field="id" data={deploymentRows} columns={deploymentColumns} hide-checkbox-column onrowaction={handleDeploymentRowAction}></lightning-datatable>
+                            </template>
+                            <template if:false={hasDeployments}><div class="empty-state">No Portfolio action plans have been deployed to Accounts yet.</div></template>
+                        </div>
+                    </lightning-tab>
+                </lightning-tabset>
+            </div>
+        </template>
+
+        <template if:false={hasPortfolio}>
+            <div class="empty-state">Select a portfolio to see its analytics and accounts.</div>
+        </template>
+    </lightning-card>
+</template>
