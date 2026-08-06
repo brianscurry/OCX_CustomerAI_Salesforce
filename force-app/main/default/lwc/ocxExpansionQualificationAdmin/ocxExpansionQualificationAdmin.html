@@ -1,0 +1,68 @@
+<template>
+    <lightning-card title="Expansion Lead Qualification" icon-name="standard:rules">
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium">
+            <lightning-combobox
+                name="rule"
+                label="Qualification Rule"
+                value={selectedRuleId}
+                options={ruleOptions}
+                onchange={handleRuleChange}>
+            </lightning-combobox>
+
+            <div class="slds-grid slds-wrap slds-gutters slds-m-top_medium">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input label="Rule Name" value={ruleName} data-field="ruleName" onchange={handleHeaderChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-4">
+                    <lightning-combobox label="Match" value={matchType} options={matchOptions} data-field="matchType" onchange={handleHeaderChange}></lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-top_large">
+                    <lightning-input type="checkbox" label="Active" checked={active} data-field="active" onchange={handleHeaderChange}></lightning-input>
+                </div>
+            </div>
+
+            <lightning-textarea class="slds-m-top_small" label="Description" value={description} data-field="description" onchange={handleHeaderChange}></lightning-textarea>
+
+            <div class="slds-m-top_large slds-text-title_bold">Conditions</div>
+            <template for:each={conditions} for:item="condition" for:index="index">
+                <div key={condition.key} class="slds-grid slds-wrap slds-gutters slds-m-top_small slds-box slds-box_x-small">
+                    <div class="slds-col slds-size_5-of-12">
+                        <lightning-combobox label="Account Field" value={condition.fieldApiName} options={fieldOptions} data-index={index} data-action="field" onchange={handleConditionChange}></lightning-combobox>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12">
+                        <lightning-combobox label="Operator" value={condition.operator} options={operatorOptions} data-index={index} data-action="operator" onchange={handleConditionChange}></lightning-combobox>
+                    </div>
+                    <div class="slds-col slds-size_3-of-12">
+                        <lightning-input label="Value" value={condition.value} data-index={index} data-action="value" onchange={handleConditionChange}></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-12 slds-p-top_large">
+                        <lightning-button-icon icon-name="utility:delete" alternative-text="Remove" data-index={index} onclick={removeCondition}></lightning-button-icon>
+                    </div>
+                </div>
+            </template>
+
+            <div class="slds-m-top_small">
+                <lightning-button label="Add Condition" onclick={addCondition}></lightning-button>
+            </div>
+
+            <div class="slds-m-top_large slds-button-group" role="group">
+                <lightning-button variant="brand" label="Save" onclick={save}></lightning-button>
+                <lightning-button label="Test Rule" onclick={test}></lightning-button>
+                <lightning-button variant="success" label="Run Now" onclick={run}></lightning-button>
+            </div>
+
+            <template if:true={message}>
+                <div class="slds-m-top_medium slds-notify slds-notify_alert slds-alert_info" role="alert">{message}</div>
+            </template>
+
+            <template if:true={sampleAccounts.length}>
+                <div class="slds-m-top_medium slds-text-title_bold">Matching sample</div>
+                <ul class="slds-list_dotted slds-m-left_large">
+                    <template for:each={sampleAccounts} for:item="account">
+                        <li key={account.Id}>{account.Name}</li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </lightning-card>
+</template>

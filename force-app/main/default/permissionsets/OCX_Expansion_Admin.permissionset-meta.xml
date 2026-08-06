@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <classAccesses><apexClass>OCXExpansionRuleEngine</apexClass><enabled>true</enabled></classAccesses>
-    <description>RevOps and administrator access to configure and run OCX expansion qualification.</description>
+<description>RevOps and administrator access to configure and run OCX expansion qualification.</description>
+    <classAccesses>
+        <apexClass>OCXExpansionAdminController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OCXExpansionRuleEngine</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <fieldPermissions>
         <editable>true</editable>
         <field>OCX_Expansion_Lead__c.OCX_Accepted_At__c</field>
