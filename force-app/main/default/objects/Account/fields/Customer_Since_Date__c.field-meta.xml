@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Since_Date__c</fullName>
+    <description>Upstream CRM customer start date used as a pre-model source ingredient for tenure and cohort features. Demo source data; not an OCX model output.</description>
+    <inlineHelpText>Customer relationship start date from the upstream CRM source.</inlineHelpText>
+    <label>Customer Since Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

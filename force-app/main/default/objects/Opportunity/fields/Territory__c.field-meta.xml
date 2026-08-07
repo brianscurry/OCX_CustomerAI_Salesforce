@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Territory__c</fullName>
+    <description>Sales territory corresponding to the original TERRITORY source ingredient. Pre-model commercial source data.</description>
+    <inlineHelpText>Sales territory associated with this opportunity.</inlineHelpText>
+    <label>Territory</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

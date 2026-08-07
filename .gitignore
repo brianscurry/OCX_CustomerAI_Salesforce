@@ -8,3 +8,7 @@ ocx-test-backup-*/
 test-fix-backup-*/
 excluded-permission-sets/
 *.before-*
+.ocx/
+750*_success-records.csv
+750*_failed-records.csv
+750*_unprocessed-records.csv

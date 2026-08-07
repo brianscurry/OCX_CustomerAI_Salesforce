@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Segment__c</fullName>
+    <description>Upstream CRM customer segment corresponding to the original SEGMENT_NAME source ingredient. Demo source data; not an OCX model output.</description>
+    <inlineHelpText>Customer segment supplied by the upstream CRM.</inlineHelpText>
+    <label>Customer Segment</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLA_Violation__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Support service-level violation indicator corresponding to the original SLT Violation source ingredient. Pre-model support data.</description>
+    <inlineHelpText>True when the support case violated its applicable service-level target.</inlineHelpText>
+    <label>SLA Violation</label>
+    <type>Checkbox</type>
+</CustomField>

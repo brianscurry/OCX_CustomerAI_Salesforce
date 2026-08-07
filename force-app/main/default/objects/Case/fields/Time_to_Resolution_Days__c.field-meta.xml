@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Time_to_Resolution_Days__c</fullName>
+    <description>Source-system time to resolution in days corresponding to the original TTR support ingredient. Raw upstream support data used to engineer resolution-time features.</description>
+    <inlineHelpText>Time to resolution in days as supplied by the support source.</inlineHelpText>
+    <label>Time to Resolution Days</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <type>Number</type>
+</CustomField>
