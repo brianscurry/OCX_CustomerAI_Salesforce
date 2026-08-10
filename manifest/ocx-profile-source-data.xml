@@ -37,6 +37,7 @@
         <members>Account.Super_Users__c</members>
         <members>Account.Super_User_Ratio__c</members>
         <members>Account.Last_Login_Date__c</members>
+        <members>Account.Source_ACV__c</members>
         <name>CustomField</name>
     </types>
     <types>

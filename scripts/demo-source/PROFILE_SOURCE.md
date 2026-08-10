@@ -89,7 +89,7 @@ Representative validated coverage included:
 - NumberOfEmployees: 7,719
 - Customer_Segment__c: 7,755
 - Region__c: 7,755
-- OCX_ACV__c: 7,755
+- Source_ACV__c: 7,755
 - Product_Family_Number__c: 6,272
 - Community_Users__c: 7,440
 - Super_Users__c: 7,440

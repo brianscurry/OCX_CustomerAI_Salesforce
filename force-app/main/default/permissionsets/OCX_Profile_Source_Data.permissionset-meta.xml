@@ -180,5 +180,11 @@
         <field>Account.Last_Login_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Source_ACV__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <label>OCX Profile Source Data</label>
+
 </PermissionSet>

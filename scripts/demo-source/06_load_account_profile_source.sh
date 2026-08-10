@@ -277,7 +277,7 @@ TARGET_MAP = [
 ('CURRENCY_CONVERSION_RATE','Source_Currency_Conversion_Rate__c','decimal'),
 ('CURRENCY','Source_Currency__c','text'),
 ('ACV_IN_CURRENCY','ACV_In_Currency__c','decimal'),
-('ACV','OCX_ACV__c','decimal'),
+('ACV','Source_ACV__c','decimal'),
 ('CUSTOMER_SINCE_DATE','Customer_Since_Date__c','date'),
 ('INDUSTRY','Source_Industry__c','text'),
 ('MINTIGO_SCORE','Mintigo_Score__c','decimal'),
