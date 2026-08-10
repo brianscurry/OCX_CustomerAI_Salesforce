@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Special_Attention__c</fullName>
+    <description>Raw upstream special-attention classification with legacy branding normalized.</description>
+    <label>Source Special Attention</label>
+    <length>255</length>
+    <type>Text</type>
+</CustomField>

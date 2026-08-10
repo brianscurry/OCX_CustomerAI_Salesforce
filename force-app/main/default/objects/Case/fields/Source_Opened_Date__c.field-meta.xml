@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Opened_Date__c</fullName>
+    <description>Raw upstream support case opened date.</description>
+    <label>Source Opened Date</label>
+    <type>Date</type>
+</CustomField>

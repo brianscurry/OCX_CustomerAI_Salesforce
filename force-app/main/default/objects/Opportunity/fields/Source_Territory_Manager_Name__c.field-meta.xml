@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Territory_Manager_Name__c</fullName>
+    <description>Bongo demo identity replacing the prototype territory manager name.</description>
+    <label>Source Territory Manager Name</label>
+    <length>80</length>
+    <type>Text</type>
+</CustomField>

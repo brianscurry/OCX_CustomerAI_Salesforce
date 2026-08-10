@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Overall_Case_Satisfaction__c</fullName>
+    <description>Raw upstream case satisfaction value.</description>
+    <label>Source Overall Case Satisfaction</label>
+    <precision>18</precision>
+    <scale>2</scale>
+    <type>Number</type>
+</CustomField>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Opportunity_ID__c</fullName>
+    <description>Original upstream Opportunity identifier retained for source lineage.</description>
+    <label>Source Opportunity ID</label>
+    <length>80</length>
+    <type>Text</type>
+</CustomField>
