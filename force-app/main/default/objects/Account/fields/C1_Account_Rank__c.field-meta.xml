@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>C1_Account_Rank__c</fullName>
+    <label>C1 Account Rank</label>
+    <type>Text</type>
+    <length>10</length>
+</CustomField>

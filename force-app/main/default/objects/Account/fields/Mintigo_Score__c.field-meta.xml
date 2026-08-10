@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mintigo_Score__c</fullName>
+    <label>Mintigo Score</label>
+    <type>Number</type>
+    <precision>6</precision>\n    <scale>2</scale>
+</CustomField>

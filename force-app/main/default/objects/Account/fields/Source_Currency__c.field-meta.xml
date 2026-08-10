@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Currency__c</fullName>
+    <label>Currency (Source)</label>
+    <type>Text</type>
+    <length>3</length>
+</CustomField>

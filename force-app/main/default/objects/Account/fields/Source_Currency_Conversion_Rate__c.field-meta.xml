@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Source_Currency_Conversion_Rate__c</fullName>
+    <label>Currency Conversion Rate (Source)</label>
+    <type>Number</type>
+    <precision>18</precision>\n    <scale>6</scale>
+</CustomField>

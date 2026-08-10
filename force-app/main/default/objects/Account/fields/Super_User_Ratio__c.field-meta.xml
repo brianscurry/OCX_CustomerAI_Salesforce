@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Super_User_Ratio__c</fullName>
+    <label>Super User Ratio</label>
+    <type>Number</type>
+    <precision>8</precision>\n    <scale>4</scale>
+</CustomField>

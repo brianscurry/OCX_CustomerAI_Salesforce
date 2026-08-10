@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Super_Users__c</fullName>
+    <label>Super Users</label>
+    <type>Number</type>
+    <precision>12</precision>\n    <scale>0</scale>
+</CustomField>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DNB_Zip_Postal_Code__c</fullName>
+    <label>DNB Zip Postal Code</label>
+    <type>Text</type>
+    <length>30</length>
+</CustomField>
