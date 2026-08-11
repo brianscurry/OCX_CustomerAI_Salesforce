@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Normalized source field with provenance, CX semantics, feature-class priors, and profiling evidence.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <label>Source Ingredient</label>
+    <nameField>
+        <label>Ingredient Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Source Ingredients</pluralLabel>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

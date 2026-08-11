@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Feature_Definition__c</fullName>
+    <label>Feature Definition</label>
+    <referenceTo>OCX_Feature_Definition__c</referenceTo>
+    <relationshipLabel>Feature Ingredients</relationshipLabel>
+    <relationshipName>Feature_Ingredients</relationshipName>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

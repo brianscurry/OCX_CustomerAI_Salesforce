@@ -1,0 +1,59 @@
+Name,Concept_Key__c,Theme_Key__c,Description__c,Signal_Patterns__c,Default_Archetypes__c,Active__c,Dictionary_Version__c
+Capability,PEOPLE_CAPABILITY,PEOPLE,Ability of people to perform the work successfully.,"skill, capability, competency, qualification",RATE;BREADTH;STATE,true,2.0
+Certification,PEOPLE_CERTIFICATION,PEOPLE,Formal certifications or validated qualifications.,"certification, certified, credential",RATE;COUNT;BREADTH,true,2.0
+Training,PEOPLE_TRAINING,PEOPLE,"Training completed, required, assigned, or consumed.","training, course, learning, LMS",COUNT;RATE;RECENCY,true,2.0
+Expertise,PEOPLE_EXPERTISE,PEOPLE,Specialized knowledge or experience relevant to the customer interaction.,"expertise, specialist, experience, skill",STATE;BREADTH;RATE,true,2.0
+Role,PEOPLE_ROLE,PEOPLE,Functional role of the person serving or interacting with the customer.,"role, title, function",STATE;BREADTH,true,2.0
+Authority,PEOPLE_AUTHORITY,PEOPLE,Seniority or decision authority available in the relationship.,"seniority, executive, manager, authority",STATE;RATE,true,2.0
+Tenure,PEOPLE_TENURE,PEOPLE,Length of time a person has been in role or relationship.,"tenure, start date, years in role",DURATION;TREND,true,2.0
+Continuity,PEOPLE_CONTINUITY,PEOPLE,Stability of assigned people over time.,"owner change, turnover, continuity, reassignment",TRANSITION;COUNT;RATE,true,2.0
+Capacity,PEOPLE_CAPACITY,PEOPLE,Availability or workload of people serving the customer.,"capacity, workload, queue, utilization, staffing",RATIO;COUNT;RATE,true,2.0
+Ownership,PEOPLE_OWNERSHIP,PEOPLE,"Who owns the customer, case, opportunity, project, or activity.","owner, assigned, assignee",STATE;TRANSITION;COUNT,true,2.0
+People Handoffs,PEOPLE_HANDOFF,PEOPLE,Transitions between people or teams serving the customer.,"handoff, transfer, reassignment, owner change",TRANSITION;COUNT;RATE,true,2.0
+Engagement,PEOPLE_ENGAGEMENT,PEOPLE,Frequency and recency of human interaction with the customer.,"meeting, email, call, touch, activity, engagement",FREQUENCY;RECENCY;COUNT,true,2.0
+Relationship Coverage,PEOPLE_RELATIONSHIP_COVERAGE,PEOPLE,Breadth and depth of people involved in the customer relationship.,"contacts, stakeholders, executives, roles engaged",BREADTH;COUNT;RATE,true,2.0
+Effort,PROCESS_EFFORT,PROCESS,Amount of work or number of interactions required to complete something.,"steps, attempts, touches, submissions, effort",COUNT;DURATION;RATE,true,2.0
+Friction,PROCESS_FRICTION,PROCESS,"Obstacles, blockers, failures, or complications in a process.","friction, blocker, failure, issue, problem",COUNT;RATE;TREND,true,2.0
+Steps,PROCESS_STEPS,PROCESS,Number or sequence of steps required.,"stage, step, milestone, status",COUNT;TRANSITION;DURATION,true,2.0
+Process Handoffs,PROCESS_HANDOFF,PROCESS,"Transitions between teams, states, systems, or owners.","handoff, transfer, transition, reassignment",TRANSITION;COUNT;RATE,true,2.0
+Exceptions,PROCESS_EXCEPTION,PROCESS,Deviations from the normal path.,"exception, override, special attention, outlier",COUNT;RATE,true,2.0
+Escalation,PROCESS_ESCALATION,PROCESS,Movement into an escalated or higher-attention path.,"escalated, escalation, critical",COUNT;RATE;TREND,true,2.0
+Rework,PROCESS_REWORK,PROCESS,"Repeated, reopened, or backward-moving work.","reopen, repeat, rework, retry",COUNT;RATE;TRANSITION,true,2.0
+Process Clarity,PROCESS_CLARITY,PROCESS,Evidence that steps and expectations are clear and understandable.,"clarity, instruction, defined, expected, next step",STATE;RATE,true,2.0
+Completion,PROCESS_COMPLETION,PROCESS,Successful completion of a process or milestone.,"closed, completed, resolved, won, complete",RATE;DURATION;STATE_SHARE,true,2.0
+Compliance,PROCESS_COMPLIANCE,PROCESS,Adherence to required process or service commitments.,"SLA, violation, compliance, required",RATE;COUNT,true,2.0
+Abandonment,PROCESS_ABANDONMENT,PROCESS,Processes started but not completed.,"abandon, cancel, lost, withdrawn",RATE;COUNT,true,2.0
+First-Time-Right,PROCESS_FIRST_TIME_RIGHT,PROCESS,"Completion without rework, repeat contact, or correction.","first contact, first time, no reopen, no rework",RATE,true,2.0
+Speed,TIME_SPEED,TIME,How quickly work progresses.,"speed, fast, elapsed, cycle",DURATION;TREND,true,2.0
+Response Time,TIME_RESPONSE,TIME,Time until a first or subsequent response.,"response time, first response, reply",DURATION;THRESHOLD_RATE,true,2.0
+Wait Time,TIME_WAIT,TIME,Time the customer waits between process events.,"wait, queue, pending, idle",DURATION;VARIABILITY,true,2.0
+Duration,TIME_DURATION,TIME,Elapsed time from start to completion.,"duration, time to resolution, age days, ageing, cycle time",DURATION;TREND;VARIABILITY,true,2.0
+Recency,TIME_RECENCY,TIME,Time since the most recent relevant event.,"last, recent, activity date, login date",RECENCY,true,2.0
+Predictability,TIME_PREDICTABILITY,TIME,Consistency of timing or ability to meet expected dates.,"predictable, due date, estimated close, forecast",VARIABILITY;THRESHOLD_RATE,true,2.0
+Lateness,TIME_LATENESS,TIME,Whether actual timing exceeds commitments or due dates.,"late, overdue, violation, missed date",RATE;DURATION,true,2.0
+Time Variability,TIME_VARIABILITY,TIME,Dispersion or inconsistency in elapsed times.,"variance, deviation, spread, p90",VARIABILITY,true,2.0
+Accuracy,INFO_ACCURACY,INFORMATION,Correctness of information provided.,"accuracy, correct, error, mismatch",RATE;COUNT,true,2.0
+Information Clarity,INFO_CLARITY,INFORMATION,Ease of understanding communications or guidance.,"clarity, clear, understandable",RATE;STATE,true,2.0
+Completeness,INFO_COMPLETENESS,INFORMATION,Whether required information is present.,"complete, missing, required fields",RATE;COUNT,true,2.0
+Consistency,INFO_CONSISTENCY,INFORMATION,Consistency of information across interactions or systems.,"consistent, conflicting, mismatch",RATE;VARIABILITY,true,2.0
+Availability,INFO_AVAILABILITY,INFORMATION,Whether useful information is available when needed.,"available, knowledge, access, article",COUNT;RATE;RECENCY,true,2.0
+Communication,INFO_COMMUNICATION,INFORMATION,"Frequency, channel, and responsiveness of communications.","email, call, meeting, message, channel",FREQUENCY;RECENCY;BREADTH,true,2.0
+Guidance,INFO_GUIDANCE,INFORMATION,"Help, instruction, recommendations, or direction provided.","guidance, advice, instruction, next step",COUNT;RATE,true,2.0
+Documentation,INFO_DOCUMENTATION,INFORMATION,"Use and quality of documents, knowledge, or written artifacts.","documentation, article, document, guide, knowledge",COUNT;RATE;RECENCY,true,2.0
+Usage,PRODUCT_USAGE,PRODUCT_SERVICE,Observed use of the product or service.,"usage, active user, login, event",FREQUENCY;COUNT;RECENCY,true,2.0
+Adoption,PRODUCT_ADOPTION,PRODUCT_SERVICE,Breadth/depth of capabilities adopted.,"adoption, feature usage, enabled, activated",BREADTH;RATE;TREND,true,2.0
+Reliability,PRODUCT_RELIABILITY,PRODUCT_SERVICE,Stability and successful operation.,"reliability, outage, failure, incident",RATE;COUNT;TREND,true,2.0
+Defects,PRODUCT_DEFECTS,PRODUCT_SERVICE,Product defects or bugs experienced.,"bug, defect, error",COUNT;RATE;TREND,true,2.0
+Quality,PRODUCT_QUALITY,PRODUCT_SERVICE,Overall service/product quality signals.,"quality, severity, satisfaction, root cause",RATE;STATE_SHARE,true,2.0
+Usability,PRODUCT_USABILITY,PRODUCT_SERVICE,Ease of using the product or service.,"usability, ease, clicks, attempts",COUNT;RATE;DURATION,true,2.0
+Functionality,PRODUCT_FUNCTIONALITY,PRODUCT_SERVICE,Capabilities/features available and used.,"feature, function, capability, product",BREADTH;COUNT;RATE,true,2.0
+Integration,PRODUCT_INTEGRATION,PRODUCT_SERVICE,Quality and health of integrations.,"integration, connector, API, sync",RATE;COUNT;TREND,true,2.0
+Performance,PRODUCT_PERFORMANCE,PRODUCT_SERVICE,Operational product/service performance.,"performance, latency, throughput, response",DURATION;RATE;TREND,true,2.0
+Outcomes,VALUE_OUTCOMES,VALUE,Business or customer outcomes achieved.,"outcome, result, goal, success",RATE;MONETARY;TREND,true,2.0
+Value Realization,VALUE_REALIZATION,VALUE,Evidence that expected value is being achieved.,"realization, benefit, achieved, success plan",RATE;TREND,true,2.0
+ROI,VALUE_ROI,VALUE,Return relative to cost or investment.,"ROI, return, savings, cost",RATIO;MONETARY,true,2.0
+Adoption Benefit,VALUE_ADOPTION_BENEFIT,VALUE,Benefit associated with actual adoption/use.,"adoption, benefit, usage value",RATIO;TREND,true,2.0
+Commercial Growth,VALUE_COMMERCIAL_GROWTH,VALUE,Growth in commercial relationship.,"ARR, ACV, revenue, growth",MONETARY;TREND;RATIO,true,2.0
+Renewal,VALUE_RENEWAL,VALUE,"Renewal exposure, likelihood, and completion.","renewal, renewal due, probability",MONETARY;RATE;RECENCY,true,2.0
+Expansion,VALUE_EXPANSION,VALUE,Expansion or upsell potential/realization.,"expansion, upsell, cross-sell",MONETARY;RATE;TREND,true,2.0
+Relationship Durability,VALUE_RELATIONSHIP_DURABILITY,VALUE,Length and persistence of the customer relationship.,"customer since, tenure, retention",DURATION;RATE,true,2.0

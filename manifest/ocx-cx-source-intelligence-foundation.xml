@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>OCX_CX_Theme__c</members>
+        <members>OCX_CX_Concept__c</members>
+        <members>OCX_Feature_Template__c</members>
+        <members>OCX_Source_Intelligence_Run__c</members>
+        <members>OCX_Source_Ingredient__c</members>
+        <members>OCX_Feature_Definition__c</members>
+        <members>OCX_Feature_Ingredient__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>OCX_CX_Source_Intelligence</members>
+        <name>PermissionSet</name>
+    </types>
+    <version>67.0</version>
+</Package>

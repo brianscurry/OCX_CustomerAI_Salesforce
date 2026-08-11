@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Reusable formula/archetype for Direct Experience, Profile, and Cohort-derived features.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <label>Feature Template</label>
+    <nameField>
+        <label>Template Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Feature Templates</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

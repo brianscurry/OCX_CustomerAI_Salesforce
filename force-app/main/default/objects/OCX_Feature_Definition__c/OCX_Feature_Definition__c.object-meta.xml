@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Generalized Direct Experience, Profile, or Cohort-derived feature definition.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <label>Feature Definition</label>
+    <nameField>
+        <label>Feature Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Feature Definitions</pluralLabel>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

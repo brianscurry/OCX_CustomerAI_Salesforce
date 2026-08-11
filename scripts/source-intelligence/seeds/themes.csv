@@ -1,0 +1,7 @@
+Name,Theme_Key__c,Description__c,Sort_Order__c,Active__c,Dictionary_Version__c
+People,PEOPLE,"Human capability, expertise, qualifications, role, tenure, continuity, capacity, ownership, and engagement.",1,true,2.0
+Process,PROCESS,"How things happen: effort, friction, steps, handoffs, exceptions, escalation, rework, clarity, completion, and compliance.",2,true,2.0
+Time,TIME,"Speed, response, waiting, duration, recency, predictability, lateness, and variability.",3,true,2.0
+Information,INFORMATION,"Accuracy, clarity, completeness, consistency, availability, communication, guidance, and documentation.",4,true,2.0
+Product / Service,PRODUCT_SERVICE,"Usage, adoption, reliability, defects, quality, usability, functionality, integration, and performance.",5,true,2.0
+Value,VALUE,"Outcomes, realization, ROI, adoption benefit, commercial growth, renewal, expansion, and relationship durability.",6,true,2.0

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Run__c</fullName>
+    <label>Source Intelligence Run</label>
+    <referenceTo>OCX_Source_Intelligence_Run__c</referenceTo>
+    <relationshipLabel>Feature Definitions</relationshipLabel>
+    <relationshipName>Feature_Definitions</relationshipName>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

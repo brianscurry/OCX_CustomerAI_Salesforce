@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Field-level recipe lineage connecting a feature definition to source ingredients.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <label>Feature Ingredient</label>
+    <nameField>
+        <displayFormat>FI-{000000}</displayFormat>
+        <label>Feature Ingredient Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Feature Ingredients</pluralLabel>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

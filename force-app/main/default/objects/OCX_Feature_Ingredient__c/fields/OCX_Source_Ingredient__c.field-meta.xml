@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OCX_Source_Ingredient__c</fullName>
+    <label>Source Ingredient</label>
+    <referenceTo>OCX_Source_Ingredient__c</referenceTo>
+    <relationshipLabel>Feature Uses</relationshipLabel>
+    <relationshipName>Feature_Uses</relationshipName>
+    <type>Lookup</type>
+</CustomField>
