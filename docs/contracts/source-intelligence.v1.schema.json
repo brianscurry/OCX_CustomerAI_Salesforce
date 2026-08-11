@@ -1,0 +1,334 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ocx.example/contracts/source-intelligence.v1.schema.json",
+  "title": "OCX Source Intelligence v1 Response Contract",
+  "description": "Vendor-neutral read-only Source Intelligence response contract. Draft until validated against real Salesforce Apex REST fixtures.",
+  "oneOf": [
+    { "$ref": "#/$defs/profileResponse" },
+    { "$ref": "#/$defs/candidatesResponse" },
+    { "$ref": "#/$defs/definitionResponse" }
+  ],
+  "$defs": {
+    "contractVersion": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "nullableString": {
+      "type": ["string", "null"]
+    },
+    "sourceSystem": {
+      "type": "string",
+      "minLength": 1
+    },
+    "availability": {
+      "type": "string",
+      "enum": [
+        "AVAILABLE",
+        "DERIVABLE",
+        "MAPPING_REQUIRED",
+        "TARGET_NOT_AVAILABLE"
+      ]
+    },
+    "theme": {
+      "type": ["string", "null"],
+      "enum": [
+        "PEOPLE",
+        "PROCESS",
+        "TIME",
+        "INFORMATION",
+        "PRODUCT_SERVICE",
+        "VALUE",
+        null
+      ]
+    },
+    "sourceMeta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["system", "catalogId", "catalogVersion", "proposalRunId"],
+      "properties": {
+        "system": { "$ref": "#/$defs/sourceSystem" },
+        "catalogId": { "$ref": "#/$defs/nullableString" },
+        "catalogVersion": { "$ref": "#/$defs/nullableString" },
+        "proposalRunId": { "$ref": "#/$defs/nullableString" }
+      }
+    },
+    "contextLabel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "$ref": "#/$defs/nullableString" }
+      }
+    },
+    "grain": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "window": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["type"],
+          "properties": {
+            "type": { "type": "string", "minLength": 1 },
+            "days": { "type": ["integer", "null"], "minimum": 1 },
+            "label": { "$ref": "#/$defs/nullableString" }
+          }
+        }
+      ]
+    },
+    "ingredient": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "ingredientId",
+        "sourceObject",
+        "sourceField",
+        "role"
+      ],
+      "properties": {
+        "ingredientId": { "type": "string", "minLength": 1 },
+        "sourceObject": { "type": "string", "minLength": 1 },
+        "sourceField": { "type": "string", "minLength": 1 },
+        "role": { "type": "string", "minLength": 1 },
+        "sourceRecordId": { "$ref": "#/$defs/nullableString" },
+        "coverage": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "cardinality": { "type": ["integer", "null"], "minimum": 0 }
+      }
+    },
+    "scoreSet": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "sourcePrior": { "type": ["number", "null"] },
+        "explainability": { "type": ["number", "null"] },
+        "coverage": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "label": { "$ref": "#/$defs/nullableString" },
+        "details": {}
+      }
+    },
+    "candidateBase": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "sourceCandidateId",
+        "sourceCandidateFingerprint",
+        "name",
+        "theme",
+        "availability",
+        "formula",
+        "grain",
+        "window",
+        "ingredients",
+        "scores",
+        "rationale",
+        "sourceProposalStatus",
+        "empiricalStatus",
+        "incompleteReasons"
+      ],
+      "properties": {
+        "sourceCandidateId": { "type": "string", "minLength": 1 },
+        "sourceCandidateFingerprint": { "type": "string", "minLength": 1 },
+        "sourceRecordId": { "$ref": "#/$defs/nullableString" },
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "$ref": "#/$defs/nullableString" },
+        "theme": { "$ref": "#/$defs/theme" },
+        "availability": { "$ref": "#/$defs/availability" },
+        "formula": { "$ref": "#/$defs/nullableString" },
+        "grain": { "$ref": "#/$defs/grain" },
+        "window": { "$ref": "#/$defs/window" },
+        "ingredients": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ingredient" }
+        },
+        "scores": { "$ref": "#/$defs/scoreSet" },
+        "rationale": { "$ref": "#/$defs/nullableString" },
+        "sourceProposalStatus": { "$ref": "#/$defs/nullableString" },
+        "empiricalStatus": { "$ref": "#/$defs/nullableString" },
+        "incompleteReasons": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "enum": ["AVAILABLE", "DERIVABLE"]
+              }
+            },
+            "required": ["availability"]
+          },
+          "then": {
+            "properties": {
+              "grain": { "type": "string", "minLength": 1 },
+              "window": {
+                "type": "object",
+                "required": ["type"]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "profileFeature": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "profileFeatureId",
+        "name",
+        "featureType",
+        "availability",
+        "ingredients",
+        "coverage",
+        "cardinality",
+        "bucketingStrategy",
+        "cohortSuitability",
+        "minimumCohortSize"
+      ],
+      "properties": {
+        "profileFeatureId": { "type": "string", "minLength": 1 },
+        "sourceRecordId": { "$ref": "#/$defs/nullableString" },
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "$ref": "#/$defs/nullableString" },
+        "featureType": { "type": "string", "minLength": 1 },
+        "availability": { "$ref": "#/$defs/availability" },
+        "ingredients": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ingredient" }
+        },
+        "coverage": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "cardinality": { "type": ["integer", "null"], "minimum": 0 },
+        "bucketingStrategy": { "$ref": "#/$defs/nullableString" },
+        "cohortSuitability": { "$ref": "#/$defs/nullableString" },
+        "minimumCohortSize": { "type": ["integer", "null"], "minimum": 1 }
+      }
+    },
+    "gap": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["theme", "concept", "availability", "reason"],
+      "properties": {
+        "theme": { "$ref": "#/$defs/theme" },
+        "concept": { "type": "string", "minLength": 1 },
+        "availability": {
+          "type": "string",
+          "enum": ["MAPPING_REQUIRED", "TARGET_NOT_AVAILABLE"]
+        },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "profileResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contractVersion",
+        "kind",
+        "source",
+        "generatedAt",
+        "profileFeatures"
+      ],
+      "properties": {
+        "contractVersion": { "$ref": "#/$defs/contractVersion" },
+        "kind": { "const": "profile" },
+        "source": { "$ref": "#/$defs/sourceMeta" },
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "profileFeatures": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/profileFeature" }
+        }
+      }
+    },
+    "candidatesResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contractVersion",
+        "kind",
+        "source",
+        "generatedAt",
+        "retrievalStatus",
+        "context",
+        "candidates",
+        "gaps"
+      ],
+      "properties": {
+        "contractVersion": { "$ref": "#/$defs/contractVersion" },
+        "kind": { "const": "candidates" },
+        "source": { "$ref": "#/$defs/sourceMeta" },
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "retrievalStatus": {
+          "type": "string",
+          "enum": ["PERSISTED", "EPHEMERAL", "NOT_GENERATED"]
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["stage", "driver"],
+          "properties": {
+            "stage": { "$ref": "#/$defs/contextLabel" },
+            "driver": { "$ref": "#/$defs/contextLabel" }
+          }
+        },
+        "candidates": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/candidateBase" }
+        },
+        "gaps": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/gap" }
+        }
+      }
+    },
+    "definitionResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contractVersion",
+        "kind",
+        "source",
+        "generatedAt",
+        "definition"
+      ],
+      "properties": {
+        "contractVersion": { "$ref": "#/$defs/contractVersion" },
+        "kind": { "const": "definition" },
+        "source": { "$ref": "#/$defs/sourceMeta" },
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "definition": {
+          "allOf": [
+            { "$ref": "#/$defs/candidateBase" },
+            {
+              "type": "object",
+              "additionalProperties": true,
+              "required": ["evidence", "lineage"],
+              "properties": {
+                "evidence": {
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/evidence" }
+                },
+                "lineage": {
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/evidence" }
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
